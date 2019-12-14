@@ -1,0 +1,35 @@
+{
+  "name": "vscode-inline-webassembly",
+  "displayName": "vscode-inline-webassembly",
+  "description": "WebAssembly syntax highlighting for JS and TS string templates",
+  "version": "1.0.0",
+  "publisher": "Dorin Fodor",
+  "engines": {
+    "vscode": "^1.41.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "webassembly",
+        "aliases": [
+          "WebAssembly"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "webassembly",
+        "scopeName": "source.wasm",
+        "path": "./syntaxes/webassembly.tmLanguage.json",
+        "injectTo": [
+          "source.js",
+          "source.ts"
+        ]
+      }
+    ]
+  }
+}
