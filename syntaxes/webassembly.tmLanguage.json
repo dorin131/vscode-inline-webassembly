@@ -1,7 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "name": "WebAssembly",
-  "injectionSelector": "R:string.template.js, R:string.template.ts",
+	"name": "WebAssembly",
 	"patterns": [
 		{
 			"include": "#keywords"
@@ -45,29 +44,27 @@
 			"patterns": [
 				{
 					"name": "storage.type.wasm",
-					"match": "\\b(func|type|param|result)\\b"
-				},
-				{
-					"name": "storage.modifier.wasm",
-					"match": "\\b(mut)\\b"
+					"match": "\\b(func|type)\\b"
 				},
 				{
 					"name": "variable.parameter.other.wasm",
 					"match": "(\\$){1}([\\w\\d]*)"
+				},
+				{
+					"name": "variable.parameter.wasm",
+					"match": "\\b(param)\\b"
 				}
 			]
 		},
 		"numeric": {
-      
 			"patterns": [
 				{
 					"name": "constant.numeric.wasm",
-					"match": "-?(0x[0-9a-fA-F][0-9a-fA-F_]*|\\d[\\d_]*)"
+					"match": "[\\d]"
 				}
 			]
 		},
 		"comments": {
-      
 			"patterns": [
 				{
 					"name": "comment.line.character.wasm",
@@ -94,7 +91,7 @@
 			"patterns": [
 				{
 					"name": "storage.type.wasm",
-					"match": "\\b(module|import|export|memory|table|start|elem|data|local|global)\\b"
+					"match": "\\b(module|type|import|export|memory|table|start|result|elem|data)\\b"
 				}
 			]
 		},
@@ -105,21 +102,19 @@
 			"patterns": [
 				{
 					"name": "constant.character.escape.wasm",
-					"match": "\\\\(n|t|\\\\|'|\"|[0-9a-fA-F]{2})"
+					"match": "\\\\."
 				}
 			]
 		},
 		"types": {
-      
 			"patterns": [
 				{
 					"name": "entity.name.type.wasm",
-					"match": "(i32|i64|f32|f64|anyfunc|v128)"
+					"match": "(i32|i64|f32|f64|anyfunc)"
 				}
 			]
 		},
 		"linear-memory-accesses": {
-      
 			"patterns": [
 				{
 					"name": "entity.name.function.wasm",
@@ -132,7 +127,6 @@
 			]
 		},
 		"resizing": {
-      
 			"patterns": [
 				{
 					"name": "support.function.wasm",
@@ -141,7 +135,6 @@
 			]
 		},
 		"calls": {
-      
 			"patterns": [
 				{
 					"name": "support.function.wasm",
@@ -150,7 +143,6 @@
 			]
 		},
 		"variables": {
-      
 			"patterns": [
 				{
 					"name": "keyword.other.wasm",
@@ -159,16 +151,14 @@
 			]
 		},
 		"control": {
-      
 			"patterns": [
 				{
-					"name": "keyword.control.wasm",
-					"match": "\\b(nop|block|loop|if|then|else|br|br_if|br_table|end|return|drop|select|unreachable)\\b"
+					"name": "keyword.control.less.wasm",
+					"match": "\\b(nop|block|loop|if|else|br|br_if|br_table|end|return|drop|select|unreachable|local)\\b"
 				}
 			]
 		},
 		"integer-operators": {
-      
 			"patterns": [
 				{
 					"name": "entity.name.function.wasm",
@@ -201,34 +191,6 @@
 				{
 					"name": "entity.name.function.wasm",
 					"match": "\\b(convert_(s|u)/(i32|i64))\\b"
-				}
-			]
-		},
-		"SIMD": {
-			"patterns": [
-				{
-					"name": "entity.name.type.wasm",
-					"match": "(i8x16|i16x8|i32x4|i64x2|f32x4|f64x2)"
-				},
-				{
-					"name": "entity.name.function.wasm",
-					"match": "\\b(convert_(s|u)/(i32x4|i64x2))\\b"
-				},
-				{
-					"name": "entity.name.function.wasm",
-					"match": "\\b(trunc_(s|u)/(f32x4|f64x2):sat)\\b"
-				},
-				{
-					"name": "entity.name.function.wasm",
-					"match": "\\b((extract_lane)(_(s|u))?)\\b"
-				},
-				{
-					"name": "entity.name.function.wasm",
-					"match": "\\b((add_saturate|sub_saturate)(_(s|u)))\\b"
-				},
-				{
-					"name": "entity.name.function.wasm",
-					"match": "\\b(splat|replace_lane|bitselect|any_true|shuffle)\\b"
 				}
 			]
 		}

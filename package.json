@@ -11,25 +11,23 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [
+		"grammars": [
       {
-        "id": "webassembly",
-        "aliases": [
-          "WebAssembly"
-        ],
-        "configuration": "./language-configuration.json"
-      }
-    ],
-    "grammars": [
-      {
-        "language": "webassembly",
         "scopeName": "source.wasm",
-        "path": "./syntaxes/webassembly.tmLanguage.json",
-        "injectTo": [
-          "source.js",
-          "source.ts"
-        ]
-      }
-    ]
-  }
+        "language": "webassembly",
+        "path": "./syntaxes/webassembly.tmLanguage.json"
+      },
+			{
+				"injectTo": [
+					"source.js",
+					"source.ts"
+				],
+				"scopeName": "source.wasm.inline",
+				"path": "./syntaxes/inline-webassembly.tmLanguage.json",
+				"embeddedLanguages": {
+					"source.wasm": "webassembly"
+				}
+			}
+		]
+	}
 }
