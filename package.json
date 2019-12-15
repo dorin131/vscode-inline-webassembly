@@ -1,39 +1,46 @@
 {
   "name": "vscode-inline-webassembly",
-  "displayName": "vscode-inline-webassembly",
-  "description": "WebAssembly syntax highlighting for JS and TS string templates",
-  "version": "1.0.0",
+  "displayName": "Inline WebAssembly Syntax Highlight",
+  "description": "WebAssembly syntax highlight for JS and TS string templates",
+  "version": "1.0.3",
   "publisher": "dorin131",
-	"license": "MIT",
+  "license": "MIT",
   "icon": "images/logo.png",
   "repository": {
-		"type": "git",
-		"url": "https://github.com/dorin131/vscode-inline-webassembly"
-	},
+    "type": "git",
+    "url": "https://github.com/dorin131/vscode-inline-webassembly"
+  },
   "engines": {
-    "vscode": "^1.41.0"
+    "vscode": "^1.40.0"
+  },
+  "scripts": {
+    "package": "vsce package",
+    "publish": "vsce publish"
   },
   "categories": [
     "Programming Languages"
   ],
   "contributes": {
-		"grammars": [
+    "grammars": [
       {
         "scopeName": "source.wasm",
         "language": "webassembly",
         "path": "./syntaxes/webassembly.tmLanguage.json"
       },
-			{
-				"injectTo": [
-					"source.js",
-					"source.ts"
-				],
-				"scopeName": "source.wasm.inline",
-				"path": "./syntaxes/inline-webassembly.tmLanguage.json",
-				"embeddedLanguages": {
-					"source.wasm": "webassembly"
-				}
-			}
-		]
-	}
+      {
+        "injectTo": [
+          "source.js",
+          "source.ts"
+        ],
+        "scopeName": "source.wasm.inline",
+        "path": "./syntaxes/inline-webassembly.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.wasm": "webassembly"
+        }
+      }
+    ]
+  },
+  "dependencies": {
+    "vsce": "^1.71.0"
+  }
 }
