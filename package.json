@@ -4,6 +4,12 @@
   "description": "WebAssembly syntax highlighting for JS and TS string templates",
   "version": "1.0.0",
   "publisher": "Dorin Fodor",
+	"license": "MIT",
+  "icon": "images/logo.png",
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/dorin131/vscode-inline-webassembly"
+	},
   "engines": {
     "vscode": "^1.41.0"
   },
