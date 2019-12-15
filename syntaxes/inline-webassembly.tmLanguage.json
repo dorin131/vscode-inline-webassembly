@@ -5,13 +5,10 @@
 	"patterns": [
 		{
 			"contentName": "meta.embedded.block.html",
-			"begin": "(?x)(\\s+?(\\w+\\.)?(?:wasm|\/\\*\\s*wasm\\s*\\*\/)\\s*)(`)",
+			"begin": "`.*?;;wasm",
 			"beginCaptures": {
 				"0": {
-					"name": "string.template.ts, punctuation.definition.string.template.begin.ts"
-				},
-				"1": {
-					"name": "entity.name.function.tagged-template.ts"
+					"name": "comment.line.character.wasm"
 				}
 			},
 			"end": "(`)",
